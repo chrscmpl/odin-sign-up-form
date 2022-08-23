@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'Ubuntu Mono Bold';
+	src: url(../resources/Ubuntu_Mono/UbuntuMono-Bold.ttf);
+}
+
+:root {
+	--ff: 'system-ui', sans-serif;
+
+	--fw-n: 300;
+	--fw-b: 500;
+
+	--fs-p: 1rem;
+	--fs-h: 1.8rem;
+
+	--main-clr: #0a0011;
+	--sec-clr: #333333;
+	--acc-clr: #5800b7;
+
+	--text-clr: #6d6d6d;
+
+	--spacer-sm: 1rem;
+	--spacer-md: calc(var(--spacer-sm) * 2);
+	--spacer-bg: calc(var(--spacer-sm) * 3);
+
+	--shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+	--br: 5px;
+}
