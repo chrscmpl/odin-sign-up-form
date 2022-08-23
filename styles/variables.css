@@ -3,6 +3,11 @@
 	src: url(../resources/Ubuntu_Mono/UbuntuMono-Bold.ttf);
 }
 
+@font-face {
+	font-family: 'Michroma';
+	src: url(../resources/Michroma/Michroma-Regular.ttf);
+}
+
 :root {
 	--ff: 'system-ui', sans-serif;
 
@@ -11,10 +16,13 @@
 
 	--fs-p: 1rem;
 	--fs-h: 1.8rem;
+	--fs-logo: 4rem;
 
 	--main-clr: #0a0011;
 	--sec-clr: #333333;
 	--acc-clr: #5800b7;
+	--error-clr: #ff0033;
+	--button-clr: #f75f00;
 
 	--text-clr: #6d6d6d;
 
@@ -22,6 +30,17 @@
 	--spacer-md: calc(var(--spacer-sm) * 2);
 	--spacer-bg: calc(var(--spacer-sm) * 3);
 
-	--shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+	--shadow: 0 0 1em #55555565;
 	--br: 5px;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--main-clr: #e4e3e3;
+		--sec-clr: #707070;
+		--acc-clr: #410385;
+		--text-clr: #000000;
+		--button-clr: #dd5500;
+		--shadow: 0 0 1em #00000040;
+	}
 }

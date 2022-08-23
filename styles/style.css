@@ -25,6 +25,20 @@ body {
 	box-shadow: var(--shadow);
 }
 
+.logo {
+	align-self: center;
+	flex: 1;
+	text-align: center;
+	margin-bottom: 18%;
+	background-color: rgba(0, 0, 0, 0.434);
+	font-family: 'Michroma';
+}
+
+.logo > h1 {
+	margin: var(--spacer-sm);
+	font-size: var(--fs-logo);
+}
+
 .form-container {
 	background: var(--main-clr);
 	box-shadow: var(--shadow);
@@ -33,7 +47,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: 7%;
+	padding-top: 5%;
 	gap: var(--spacer-md);
 }
 
@@ -73,11 +87,86 @@ fieldset > .field {
 	border-color: var(--sec-color);
 }
 
+.field > div {
+	display: flex;
+}
+
 input {
+	flex: 1;
 	border-radius: var(--br);
 	font-weight: var(--fw-b);
+	overflow: visible;
 }
 
 label {
 	font-family: 'Ubuntu Mono Bold';
+}
+
+input:required + .required-symbol {
+	width: 0;
+	height: 0;
+	position: relative;
+	left: 4px;
+	bottom: 4px;
+}
+
+input:required + .required-symbol::after {
+	content: '*';
+	font-weight: var(--fw-b);
+}
+
+input:invalid:not(:placeholder-shown) + .required-symbol::after {
+	color: var(--error-clr);
+}
+
+button[type='submit'] {
+	align-self: flex-start;
+	margin-left: var(--spacer-bg);
+	border-radius: var(--br);
+	padding: var(--fs-p) calc(var(--fs-p) * 2);
+	font-weight: var(--fw-b);
+	color: var(--main-clr);
+	border: none;
+	box-shadow: var(--shadow);
+	background-color: var(--button-clr);
+}
+
+button[type='submit'] + span {
+	align-self: start;
+	margin-left: var(--spacer-bg);
+}
+
+button[type='submit'] + span > a {
+	text-decoration: none;
+	color: var(--button-clr);
+}
+
+.error {
+	color: var(--error-clr);
+}
+
+.error > span::after {
+	visibility: visible;
+}
+
+@media (max-width: 500px) {
+	body {
+		flex-direction: column;
+	}
+
+	.logo {
+		margin-bottom: 0;
+	}
+
+	.form-container {
+		width: 100vw;
+		height: max-content;
+		padding-bottom: 10vh;
+	}
+
+	section,
+	fieldset {
+		flex-direction: column;
+		gap: var(--spacer-sm);
+	}
 }

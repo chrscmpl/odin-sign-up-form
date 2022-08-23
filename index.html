@@ -8,8 +8,10 @@
 		<link rel="stylesheet" href="./styles/normalize-CSS/normalize.css" />
 		<link rel="stylesheet" href="./styles/variables.css" />
 		<link rel="stylesheet" href="./styles/style.css" />
+		<script src="./index.js" defer></script>
 	</head>
 	<body>
+		<div class="logo"><h1>FAKE SERVICE</h1></div>
 		<div class="form-container">
 			<p>
 				This is not a real online service! You know you need something like this
@@ -17,39 +19,104 @@
 				<i>now</i> to get started.
 			</p>
 			<p>You <i>know</i> you want to.</p>
-			<form action="#" method="POST">
+			<form id="form">
 				<p>Let's do this!</p>
 				<section>
 					<div class="field">
-						<label for="first-name">FIRST NAME</label
-						><input type="text" id="first-name" class="glass" />
+						<label for="first-name">FIRST NAME</label>
+						<div>
+							<input
+								type="text"
+								name="first-name"
+								id="first-name"
+								class="glass"
+								placeholder=" "
+								required
+							/>
+							<span class="required-symbol"></span>
+						</div>
+						<span class="error-message"></span>
 					</div>
 					<div class="field">
-						<label for="last-name">LAST NAME</label
-						><input type="text" id="last-name" class="glass" />
+						<label for="last-name">LAST NAME</label>
+						<div>
+							<input
+								type="text"
+								name="last-name"
+								id="last-name"
+								class="glass"
+								placeholder=" "
+								required
+							/><span class="required-symbol"></span>
+						</div>
+						<span class="error-message"></span>
 					</div>
 				</section>
 				<section>
 					<div class="field">
-						<label for="email">EMAIL</label
-						><input type="email" id="email" class="glass" />
+						<label for="email">EMAIL</label>
+						<div>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								class="glass"
+								placeholder=" "
+								required
+							/><span class="required-symbol"></span>
+						</div>
+						<span class="error-message"></span>
 					</div>
 					<div class="field">
-						<label for="phone">PHONE NUMBER</label
-						><input type="tel" id="phone" class="glass" />
+						<label for="phone-number">PHONE NUMBER</label>
+						<div>
+							<input
+								type="tel"
+								name="phone-number"
+								id="phone-number"
+								class="glass"
+								placeholder=" "
+							/>
+							<span class="required-symbol"></span>
+						</div>
+						<span class="error-message"></span>
 					</div>
 				</section>
 				<fieldset>
 					<div class="field">
-						<label for="password">PASSWORD</label
-						><input type="password" id="password" class="glass" />
+						<label for="password">PASSWORD</label>
+						<div>
+							<input
+								type="password"
+								name="password"
+								id="password"
+								class="glass"
+								placeholder=" "
+								required
+							/>
+							<span class="required-symbol"></span>
+						</div>
+						<span class="error-message"></span>
 					</div>
 					<div class="field">
-						<label for="confirm-password">CONFIRM PASSWORD</label
-						><input type="password" id="confirm-password" class="glass" />
+						<label for="confirm-password">CONFIRM PASSWORD</label>
+						<div>
+							<input
+								type="password"
+								name="confirm-password"
+								id="confirm-password"
+								class="glass"
+								required
+								placeholder=" "
+							/>
+							<span class="required-symbol"></span>
+						</div>
+						<span class="error-message"></span>
 					</div>
 				</fieldset>
 			</form>
+			<button type="submit" form="form">Create Account</button>
+			<span>Already have an account? <a href="#">Log in</a></span>
 		</div>
 	</body>
 </html>
