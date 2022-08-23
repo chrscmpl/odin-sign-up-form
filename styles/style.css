@@ -7,7 +7,6 @@
 body {
 	height: 100vh;
 	width: 100%;
-	position: absolute;
 	background-image: url('../resources/background.jpg');
 	background-size: cover;
 	display: flex;
@@ -28,10 +27,23 @@ body {
 .logo {
 	align-self: center;
 	flex: 1;
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 18%;
 	background-color: rgba(0, 0, 0, 0.434);
 	font-family: 'Michroma';
+}
+
+.logo > svg {
+	height: var(--svg-height);
+	width: var(--svg-width);
+}
+
+.logo > svg > path {
+	transform: scale(var(--path-scale));
+	fill: var(--text-clr);
+	animation: dropIn 8s ease forwards infinite;
 }
 
 .logo > h1 {
@@ -100,6 +112,7 @@ input {
 
 label {
 	font-family: 'Ubuntu Mono Bold';
+	align-self: flex-start;
 }
 
 input:required + .required-symbol {
@@ -149,13 +162,34 @@ button[type='submit'] + span > a {
 	visibility: visible;
 }
 
+@keyframes dropIn {
+	20% {
+		opacity: 0;
+		transform: scale(var(--path-scale)) translateY(-20%);
+	}
+	30%,
+	95% {
+		opacity: 1;
+		transform: scale(var(--path-scale)) translateY(0%);
+	}
+}
+
+@media (max-width: 800px) {
+	section > .field,
+	fieldset > .field {
+		flex: 0;
+	}
+}
+
 @media (max-width: 500px) {
 	body {
 		flex-direction: column;
+		height: max-content;
 	}
 
 	.logo {
-		margin-bottom: 0;
+		margin: var(--spacer-sm) 0;
+		align-self: stretch;
 	}
 
 	.form-container {
