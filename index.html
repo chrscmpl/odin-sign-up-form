@@ -31,94 +31,89 @@
 				<section>
 					<div class="field">
 						<label for="first-name">FIRST NAME</label>
-						<div>
-							<input
-								type="text"
-								name="first-name"
-								id="first-name"
-								class="glass"
-								placeholder=" "
-								required
-							/>
-							<span class="required-symbol"></span>
-						</div>
-						<span class="error-message"></span>
+						<input
+							type="text"
+							name="first-name"
+							id="first-name"
+							class="glass"
+							placeholder=" "
+							required
+							pattern="^[A-Za-z ]{1,35}$"
+						/>
+						<span class="required-symbol"></span>
+						<div class="error-message"></div>
 					</div>
 					<div class="field">
 						<label for="last-name">LAST NAME</label>
-						<div>
-							<input
-								type="text"
-								name="last-name"
-								id="last-name"
-								class="glass"
-								placeholder=" "
-								required
-							/><span class="required-symbol"></span>
-						</div>
-						<span class="error-message"></span>
+						<input
+							type="text"
+							name="last-name"
+							id="last-name"
+							class="glass"
+							placeholder=" "
+							required
+							pattern="^[A-Za-z ]{1,35}$"
+						/>
+						<span class="required-symbol"></span>
+						<div class="error-message"></div>
 					</div>
 				</section>
 				<section>
 					<div class="field">
 						<label for="email">EMAIL</label>
-						<div>
-							<input
-								type="email"
-								name="email"
-								id="email"
-								class="glass"
-								placeholder=" "
-								required
-							/><span class="required-symbol"></span>
-						</div>
-						<span class="error-message"></span>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							class="glass"
+							placeholder=" "
+							required
+						/>
+						<span class="required-symbol"></span>
+						<div class="error-message"></div>
 					</div>
 					<div class="field">
 						<label for="phone-number">PHONE NUMBER</label>
-						<div>
-							<input
-								type="tel"
-								name="phone-number"
-								id="phone-number"
-								class="glass"
-								placeholder=" "
-							/>
-							<span class="required-symbol"></span>
-						</div>
-						<span class="error-message"></span>
+						<input
+							type="tel"
+							name="phone-number"
+							id="phone-number"
+							class="glass"
+							placeholder=" "
+							pattern="\d{3}[\-]?\d{3}[\-]?\d{4}"
+						/>
+						<span class="required-symbol"></span>
+						<div class="error-message"></div>
 					</div>
 				</section>
 				<fieldset>
 					<div class="field">
 						<label for="password">PASSWORD</label>
-						<div>
-							<input
-								type="password"
-								name="password"
-								id="password"
-								class="glass"
-								placeholder=" "
-								required
-							/>
-							<span class="required-symbol"></span>
-						</div>
-						<span class="error-message"></span>
+						<input
+							type="password"
+							name="password"
+							id="password"
+							class="glass"
+							required
+							placeholder=" "
+							pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+						/>
+						<span class="required-symbol"></span>
+						<div class="error-message"></div>
 					</div>
 					<div class="field">
 						<label for="confirm-password">CONFIRM PASSWORD</label>
-						<div>
-							<input
-								type="password"
-								name="confirm-password"
-								id="confirm-password"
-								class="glass"
-								required
-								placeholder=" "
-							/>
-							<span class="required-symbol"></span>
-						</div>
-						<span class="error-message"></span>
+						<input
+							type="password"
+							name="confirm-password"
+							id="confirm-password"
+							class="glass"
+							required
+							placeholder=" "
+							pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+						/>
+						<span class="required-symbol"></span>
+						<div class="error-message"></div>
 					</div>
 				</fieldset>
 			</form>

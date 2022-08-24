@@ -94,8 +94,6 @@ fieldset {
 section > .field,
 fieldset > .field {
 	flex: 1;
-	display: flex;
-	flex-direction: column;
 	border-color: var(--sec-color);
 }
 
@@ -104,7 +102,6 @@ fieldset > .field {
 }
 
 input {
-	flex: 1;
 	border-radius: var(--br);
 	font-weight: var(--fw-b);
 	overflow: visible;
@@ -113,23 +110,19 @@ input {
 label {
 	font-family: 'Ubuntu Mono Bold';
 	align-self: flex-start;
+	display: block;
 }
 
 input:required + .required-symbol {
 	width: 0;
 	height: 0;
 	position: relative;
-	left: 4px;
 	bottom: 4px;
 }
 
 input:required + .required-symbol::after {
 	content: '*';
 	font-weight: var(--fw-b);
-}
-
-input:invalid:not(:placeholder-shown) + .required-symbol::after {
-	color: var(--error-clr);
 }
 
 button[type='submit'] {
@@ -154,12 +147,53 @@ button[type='submit'] + span > a {
 	color: var(--button-clr);
 }
 
-.error {
+.invalid {
 	color: var(--error-clr);
 }
 
-.error > span::after {
+.error-message {
+	margin-top: 3px;
+	font-size: calc(var(--fs-p) * 0.7);
+	font-weight: var(--fw-b);
+	width: 70%;
+	visibility: hidden;
+}
+
+.invalid > input {
+	box-shadow: var(--error-shadow);
+}
+
+.invalid > .error-message {
 	visibility: visible;
+}
+
+.invalid > :required:placeholder-shown ~ .error-message::after {
+	content: 'Please fill out this field';
+}
+
+.invalid > #first-name:invalid:not(:placeholder-shown) ~ .error-message::after {
+	content: "First name can only include letters and whitespace and can't be more than 35 characters long";
+}
+
+.invalid > #last-name:invalid:not(:placeholder-shown) ~ .error-message::after {
+	content: "Last name can only include letters and whitespace and can't be more than 35 characters long";
+}
+
+.invalid > #email:invalid:not(:placeholder-shown) ~ .error-message::after {
+	content: 'Please enter a valid email address';
+}
+
+.invalid
+	> #phone-number:invalid:not(:placeholder-shown)
+	~ .error-message::after {
+	content: 'Please enter a valid phone number';
+}
+
+.invalid > #password:invalid:not(:placeholder-shown) ~ .error-message::after,
+.invalid
+	> #confirm-password:invalid:not(:placeholder-shown)
+	~ .error-message::after {
+	content: 'Your password must contain at least one uppercase and lowercase letter, a number and a symbol, and be at least 8 characters long';
 }
 
 @keyframes dropIn {
