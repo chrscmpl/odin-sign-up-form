@@ -28,6 +28,15 @@ document
 //prevent the browser from showing default error bubble / hint
 document.addEventListener('invalid', e => e.preventDefault(), true);
 
+// document.getElementById('confirm-password').addEventListener('focusout', e => {
+// 	const password = document.getElementById('password');
+// 	if (password.textContent === e.target.textContent) return;
+// 	password.parentElement.classList.add('not-matching');
+// 	e.target.parentElement.classList.add('not-matching');
+// 	password.parentElement.classList.add('invalid');
+// 	e.target.parentElement.classList.add('invalid');
+// });
+
 function Field(field) {
 	this.field = field;
 	this.input = field.querySelector('input');
