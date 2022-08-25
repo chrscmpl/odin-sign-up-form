@@ -24,9 +24,8 @@
 
 	--main-clr: #0a0011;
 	--sec-clr: #333333;
-	--acc-clr: #5800b7;
+	--acc-clr: #f75f00;
 	--error-clr: #ff0033;
-	--button-clr: #f75f00;
 
 	--text-clr: #6d6d6d;
 
@@ -43,16 +42,32 @@
 	:root {
 		--main-clr: #e4e3e3;
 		--sec-clr: #707070;
-		--acc-clr: #410385;
+		--acc-clr: #dd5500;
 		--text-clr: #000000;
-		--button-clr: #dd5500;
 		--shadow: 0 0 1em #00000040;
+	}
+}
+
+@media (min-width: 2000px) {
+	:root {
+		--fs-logo: 6rem;
+		--fs-h: 4rem;
+		--fs-p: 2.5rem;
+		--path-scale: 250%;
+		--svg-height: 120px;
+	}
+}
+
+@media (max-width: 1440px) {
+	:root {
+		--fs-logo: 3rem;
 	}
 }
 
 @media (max-width: 1050px) {
 	:root {
 		--fs-h: 1.65rem;
+		--fs-logo: 2rem;
 	}
 }
 
@@ -60,11 +75,6 @@
 	:root {
 		--path-scale: 100%;
 		--svg-height: 46px;
-	}
-}
-
-@media (max-width: 500px) {
-	:root {
 		--fs-logo: 1.8rem;
 	}
 }

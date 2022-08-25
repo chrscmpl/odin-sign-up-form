@@ -5,7 +5,7 @@
 }
 
 body {
-	height: 100vh;
+	min-height: 100vh;
 	width: 100%;
 	background-image: url('../resources/background.jpg');
 	background-size: cover;
@@ -32,6 +32,8 @@ body {
 	align-items: center;
 	margin-bottom: 18%;
 	background-color: rgba(0, 0, 0, 0.434);
+	border-left: none;
+	border-right: none;
 	font-family: 'Michroma';
 }
 
@@ -140,7 +142,7 @@ button[type='submit'] {
 	color: var(--main-clr);
 	border: none;
 	box-shadow: var(--shadow);
-	background-color: var(--button-clr);
+	background-color: var(--acc-clr);
 }
 
 button[type='submit'] + span {
@@ -148,9 +150,9 @@ button[type='submit'] + span {
 	margin-left: var(--spacer-bg);
 }
 
-button[type='submit'] + span > a {
+a {
 	text-decoration: none;
-	color: var(--button-clr);
+	color: var(--acc-clr);
 }
 
 .invalid {
@@ -222,6 +224,12 @@ button[type='submit'] + span > a {
 	content: 'Passwords do not match';
 }
 
+#credit {
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+}
+
 @keyframes dropIn {
 	20% {
 		opacity: 0;
@@ -234,14 +242,7 @@ button[type='submit'] + span > a {
 	}
 }
 
-@media (max-width: 800px) {
-	section > .field,
-	fieldset > .field {
-		flex: 0;
-	}
-}
-
-@media (max-width: 500px) {
+@media (orientation: portrait) {
 	body {
 		flex-direction: column;
 		height: max-content;
@@ -254,13 +255,33 @@ button[type='submit'] + span > a {
 
 	.form-container {
 		width: 100vw;
-		height: max-content;
 		padding-bottom: 10vh;
 	}
 
+	#credit {
+		top: 0;
+	}
+}
+
+@media (max-width: 500px) {
 	section,
 	fieldset {
 		flex-direction: column;
 		gap: var(--spacer-sm);
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	form > p {
+		text-align: center;
+	}
+
+	button[type='submit'] {
+		align-self: center;
+		margin-left: 0;
 	}
 }
