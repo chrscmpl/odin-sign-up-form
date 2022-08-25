@@ -1,54 +1,56 @@
 const fields = getFields();
 
+//shows invalid input when focusing out of it
 fields.forEach(field =>
 	field.input.addEventListener('focusout', () => {
 		field.update();
 	})
 );
 
-fields.forEach(field =>
+//enables aggressive validity checking after wrong input
+fields.forEach(field => {
 	field.input.addEventListener(
 		'focus',
-		() =>
-			(field.aggressive =
-				!field.input.checkValidity() && !field.input.validity.valueMissing)
-	)
-);
-
-fields.forEach(field =>
+		() => (field.aggressive = field.field.classList.contains('invalid'))
+	);
 	field.input.addEventListener('input', () => {
 		if (field.aggressive) field.update();
-	})
-);
+	});
+});
 
+//prevents the browser from showing default error bubble / hint
+document.addEventListener('invalid', e => e.preventDefault(), true);
+
+//shows every invalid input when trying to submit the form
 document
 	.querySelector("button[type='submit']")
 	.addEventListener('click', () => fields.forEach(field => field.update()));
-
-//prevent the browser from showing default error bubble / hint
-document.addEventListener('invalid', e => e.preventDefault(), true);
-
-// document.getElementById('confirm-password').addEventListener('focusout', e => {
-// 	const password = document.getElementById('password');
-// 	if (password.textContent === e.target.textContent) return;
-// 	password.parentElement.classList.add('not-matching');
-// 	e.target.parentElement.classList.add('not-matching');
-// 	password.parentElement.classList.add('invalid');
-// 	e.target.parentElement.classList.add('invalid');
-// });
 
 function Field(field) {
 	this.field = field;
 	this.input = field.querySelector('input');
 
 	this.update = function () {
-		if (!this.input.checkValidity()) this.showError();
-		else if (this.field.classList.contains('invalid'))
-			this.field.classList.remove('invalid');
+		if (!this.input.checkValidity()) this.field.classList.add('invalid');
+		else this.field.classList.remove('invalid');
+		this.updateNotMatchingPassword();
 	};
 
-	this.showError = function () {
-		this.field.classList.add('invalid');
+	this.updateNotMatchingPassword = function () {
+		if (this.isNotMatchingPassword()) {
+			this.field.classList.add('not-matching');
+			this.input.setCustomValidity('passwords do not match');
+		} else {
+			this.field.classList.remove('not-matching');
+			this.input.setCustomValidity('');
+		}
+	};
+
+	this.isNotMatchingPassword = function () {
+		return (
+			this.input.id === 'confirm-password' &&
+			this.input.value !== document.getElementById('password').value
+		);
 	};
 }
 

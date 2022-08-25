@@ -105,6 +105,7 @@ input {
 	border-radius: var(--br);
 	font-weight: var(--fw-b);
 	overflow: visible;
+	width: calc(100% - 2ch);
 }
 
 label {
@@ -158,9 +159,9 @@ button[type='submit'] + span > a {
 
 .error-message {
 	margin-top: 3px;
-	font-size: calc(var(--fs-p) * 0.7);
+	font-size: calc(var(--fs-p) * 0.8);
 	font-weight: var(--fw-b);
-	width: 70%;
+	width: calc(100% - 2ch);
 	visibility: hidden;
 }
 
@@ -212,20 +213,14 @@ button[type='submit'] + span > a {
 .invalid
 	> #confirm-password:invalid:not(:placeholder-shown)
 	~ .error-message::after {
-	content: 'Your password must contain at least one uppercase and lowercase letter, a number and a symbol, and be at least 8 characters long';
-}
-/* 
-.not-matching
-	> #password:invalid:not(:placeholder-shown)
-	~ .error-message::after {
-	content: 'Passwords do not match';
+	content: 'Your password must be at least 8 characters long, and it must contain at least one uppercase and lowercase letter and a number';
 }
 
 .not-matching
 	> #confirm-password:invalid:not(:placeholder-shown)
 	~ .error-message::after {
-	content: '';
-} */
+	content: 'Passwords do not match';
+}
 
 @keyframes dropIn {
 	20% {
