@@ -242,7 +242,7 @@ a {
 	}
 }
 
-@media (orientation: portrait) {
+@media (max-width: 800px) {
 	body {
 		flex-direction: column;
 		height: max-content;
